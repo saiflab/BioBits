@@ -4,15 +4,7 @@ from io import StringIO
 
 # Add a full-width logo at the top
 logo = "logo.jpg"
-st.markdown(f"""
-    <style>
-        .full-width-image {{
-            width: 100%;
-            height: auto;
-        }}
-    </style>
-    <img class="full-width-image" src="{logo}" alt="Logo">
-""", unsafe_allow_html=True)
+st.image(logo, use_column_width=True)  # Logo spans the full width of the column
 
 # Title and description
 st.title("Bioinformatics Sequence Analyzer")
