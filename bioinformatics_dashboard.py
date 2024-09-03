@@ -2,9 +2,17 @@ import streamlit as st
 from Bio import SeqIO
 from io import StringIO
 
-# Add a logo at the top
+# Add a full-width logo at the top
 logo = "logo.jpg"
-st.image(logo, width=150)  # Adjust the width as needed
+st.markdown(f"""
+    <style>
+        .full-width-image {{
+            width: 100%;
+            height: auto;
+        }}
+    </style>
+    <img class="full-width-image" src="{logo}" alt="Logo">
+""", unsafe_allow_html=True)
 
 # Title and description
 st.title("Bioinformatics Sequence Analyzer")
