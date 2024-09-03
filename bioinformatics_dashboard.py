@@ -1,12 +1,15 @@
-
 import streamlit as st
 from Bio import SeqIO
 from io import StringIO
 
+# Add a logo at the top
+logo = "logo.jpg"
+st.image(logo, width=150)  # Adjust the width as needed
+
 # Title and description
 st.title("Bioinformatics Sequence Analyzer")
 st.write("Upload a DNA/RNA FASTA file to get basic sequence statistics.")
-st.write("Created by Ahmed Saif")
+st.markdown("**Created by Ahmed Saif**", unsafe_allow_html=True)  # Bold name
 
 # Upload FASTA file
 uploaded_file = st.file_uploader("Choose a FASTA file", type="fasta")
@@ -14,7 +17,8 @@ uploaded_file = st.file_uploader("Choose a FASTA file", type="fasta")
 if uploaded_file is not None:
     # Read the file as a string
     fasta_text = uploaded_file.read().decode("utf-8")
-    st.text(f"FASTA file content:\n{fasta_text[:500]}...")  # Show a snippet of the sequence
+    st.subheader("FASTA File Content Preview:")
+    st.text_area("FASTA Content", fasta_text[:500] + "...", height=150, max_chars=1000)  # Show a snippet of the sequence
 
     # Parse FASTA file
     fasta_io = StringIO(fasta_text)
@@ -34,19 +38,20 @@ if uploaded_file is not None:
         'Other': seq_length - (sequence.count('A') + sequence.count('T') + sequence.count('G') + sequence.count('C'))
     }
 
-    # Display results
-    st.write(f"**Sequence ID:** {record.id}")
-    st.write(f"**Sequence Length:** {seq_length} bases")
-    st.write(f"**GC Content:** {gc_content:.2f}%")
+    # Display results with better formatting
+    st.subheader("Sequence Statistics")
+    st.write(f"**Sequence ID:** `{record.id}`")
+    st.write(f"**Sequence Length:** `{seq_length}` bases")
+    st.write(f"**GC Content:** `{gc_content:.2f}%`")
     
-    # Show nucleotide distribution
-    st.write("**Nucleotide Distribution:**")
-    st.write(nucleotide_distribution)
+    # Show nucleotide distribution in a table with some styling
+    st.subheader("Nucleotide Distribution")
+    st.table(nucleotide_distribution)
 
     # Optionally display the full sequence
     if st.checkbox("Show full sequence"):
-        st.text(sequence)
+        st.text_area("Full Sequence", sequence, height=200)
 
-# Footer
+# Footer with some styling
 st.write("---")
-st.write("Developed with Streamlit")
+st.markdown('<p style="text-align: center;">Developed with Streamlit</p>', unsafe_allow_html=True)
