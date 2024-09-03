@@ -17,7 +17,7 @@ st.markdown(f"""
 # Title and description
 st.title("Bioinformatics Sequence Analyzer")
 st.write("Upload a DNA/RNA FASTA file to get basic sequence statistics.")
-st.markdown("**Created by Ahmed Saif Tamim**", unsafe_allow_html=True)  # Bold name
+st.markdown("**Created by Ahmed Saif T**", unsafe_allow_html=True)  # Bold name
 
 # Upload FASTA file
 uploaded_file = st.file_uploader("Choose a FASTA file", type="fasta")
