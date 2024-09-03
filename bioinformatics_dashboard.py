@@ -43,7 +43,7 @@ st.image(logo, use_column_width=True)  # Logo spans the full width of the column
 # Title and description with custom class
 st.markdown('<h1 class="title">Bioinformatics Sequence Analyzer</h1>', unsafe_allow_html=True)
 st.write("Upload a DNA/RNA FASTA file to get basic sequence statistics.")
-st.markdown('<p><strong>Created by Ahmed Saif</strong></p>', unsafe_allow_html=True)  # Bold name
+st.markdown('<p><strong>Created by Ahmed Saif Tamim</strong></p>', unsafe_allow_html=True)  # Bold name
 
 # Upload FASTA file
 uploaded_file = st.file_uploader("Choose a FASTA file", type="fasta")
