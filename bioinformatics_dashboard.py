@@ -76,7 +76,7 @@ if uploaded_file is not None:
     
     # Display results
     st.markdown('<h3 class="subheader">FASTA File Content Preview:</h3>', unsafe_allow_html=True)
-    st.text_area("FASTA Content", fasta_text[:500] + "...", height=150, max_chars=1000)  # Show a snippet of the sequence
+    st.text_area("FASTA Content", fasta_text[:500] + "...", height=150, max_chars=1000, key="text_area")  # Show a snippet of the sequence
 
     st.markdown('<h3 class="subheader">Sequence Statistics</h3>', unsafe_allow_html=True)
     st.write(f"**Number of Sequences:** `{num_sequences}`")
