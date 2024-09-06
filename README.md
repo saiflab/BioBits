@@ -1,5 +1,5 @@
 # BioBits
 
-A Bioinformatics Sequence Analyzer.
+## A Bioinformatics Sequence Analyzer.
 
-Website: https://biobits.streamlit.app/
+## Website: https://biobits.streamlit.app/
